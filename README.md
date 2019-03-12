@@ -21,5 +21,5 @@ daruk init --ignore my-first-daruk-app
 # 使用自定义的模板
 # 模板 url 地址需要满足规则: https://www.npmjs.com/package/download-git-repo
 # 比如这里我们使用模板工程中的 nodejs-ts-scaffold 分支作为模板初始化项目
-daruk init custom-daruk-app 'git@github.com:daruk-framework/daruk-template.git#nodejs-ts-scaffold'
+daruk init custom-daruk-app 'daruk-framework/daruk-template.git#nodejs-ts-scaffold'
 ```
