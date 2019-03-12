@@ -12,7 +12,7 @@ program
   .option('-i, --ignore', 'use remote template but local cache')
   .description('init repository with template')
   .action((project, template, option) => {
-    template = template || 'git@github.com:daruk-framework/daruk-template.git#master'
+    template = template || 'daruk-framework/daruk-template#master'
     initRepo(template, project, option)
   })
 
