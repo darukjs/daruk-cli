@@ -1,0 +1,37 @@
+{
+  "name": "daruk-cli",
+  "version": "0.1.7",
+  "description": "init Daruk repository with template",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "node ./bin/daruk init test-daruk -i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:daruk-framework/daruk-cli.git"
+  },
+  "keywords": [
+    "daruk",
+    "init"
+  ],
+  "bin": {
+    "daruk": "./bin/daruk.js"
+  },
+  "author": "Youjingyu",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.1",
+    "chalk": "^2.4.1",
+    "commander": "^2.17.1",
+    "consolidate": "^0.15.1",
+    "download-git-repo": "^1.1.0",
+    "handlebars": "^4.0.11",
+    "inquirer": "^6.2.0",
+    "metalsmith": "^2.3.0",
+    "minimatch": "^3.0.4",
+    "multimatch": "^2.1.0",
+    "ora": "^3.0.0",
+    "rimraf": "^2.6.2",
+    "user-home": "^2.0.0"
+  }
+}
