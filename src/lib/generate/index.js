@@ -26,6 +26,60 @@ Handlebars.registerHelper('if_in', function (object, key, opts) {
     : opts.inverse(this)
 })
 
+Handlebars.registerHelper('if_not_in', function (object, key, opts) {
+  return object[key] !== true
+    ? opts.fn(this)
+    : opts.inverse(this)
+})
+
+const extractKeys = (args) => {
+  return {
+    object: args[0],
+    opts: args[args.length - 1],
+    keys: Array.prototype.slice.call(args, 1, -1)
+  }
+}
+
+Handlebars.registerHelper('if_in_or', function () {
+  const { object, opts, keys } = extractKeys(arguments)
+  for (let key of keys) {
+    if (object[key] === true) {
+      return opts.fn(this)
+    }
+  }
+  return opts.inverse(this)
+})
+
+Handlebars.registerHelper('if_in_and', function () {
+  const { object, opts, keys } = extractKeys(arguments)
+  for (let key of keys) {
+    if (object[key] !== true) {
+      return opts.inverse(this)
+    }
+  }
+  return opts.fn(this)
+})
+
+Handlebars.registerHelper('if_not_in_or', function () {
+  const { object, opts, keys } = extractKeys(arguments)
+  for (let key of keys) {
+    if (object[key] !== true) {
+      return opts.fn(this)
+    }
+  }
+  return opts.inverse(this)
+})
+
+Handlebars.registerHelper('if_not_in_and', function () {
+  const { object, opts, keys } = extractKeys(arguments)
+  for (let key of keys) {
+    if (object[key] === true) {
+      return opts.inverse(this)
+    }
+  }
+  return opts.fn(this)
+})
+
 module.exports = function (templateDir, project, cb) {
   const dest = path.resolve(project)
 

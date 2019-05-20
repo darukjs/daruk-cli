@@ -1,10 +1,10 @@
 {
   "name": "daruk-cli",
-  "version": "0.1.8",
+  "version": "0.2.0",
   "description": "init Daruk repository with template",
   "main": "./src/index.js",
   "scripts": {
-    "test": "node ./bin/daruk init test-daruk -i"
+    "test": "node ./bin/daruk init test-daruk"
   },
   "repository": {
     "type": "git",
