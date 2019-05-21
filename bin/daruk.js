@@ -10,6 +10,7 @@ program.version(require('../package').version, '-v, --version')
 program
   .command('init <project> [template]')
   .option('-i, --ignore', 'use remote template but local cache')
+  .option('--clone', 'use git clone for direct:url')
   .description('init repository with template')
   .action((project, template, option) => {
     template = template || 'daruk-framework/daruk-template#master'

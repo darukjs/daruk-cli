@@ -3,9 +3,9 @@ const exists = require('fs').existsSync
 const ora = require('ora')
 const rm = require('rimraf').sync
 
-module.exports = function (url, outputDir, ignoreCache, cb) {
+module.exports = function (url, outputDir, options, cb) {
   if (exists(outputDir)) {
-    if (ignoreCache) {
+    if (options.ignore) {
       rm(outputDir)
     } else {
       return cb(null)
@@ -13,7 +13,7 @@ module.exports = function (url, outputDir, ignoreCache, cb) {
   }
   const spinner = ora('downloading template')
   spinner.start()
-  download(url, outputDir, (err) => {
+  download(url, outputDir, { clone: options.clone }, (err) => {
     spinner.stop()
     cb && cb(err)
   })
