@@ -57,7 +57,20 @@ function prompt (data, key, prompt, done) {
     default: promptDefault,
     choices: prompt.choices || [],
     validate: function (res) {
-      return !prompt.required || res !== '' || `${prompt.message} cannot be empty`
+      if (!prompt.required) {
+        return true
+      }
+      const msg = `${prompt.message} cannot be empty`
+      if (typeof res === 'string') {
+        return res !== '' || msg
+      }
+      if (Array.isArray(res)) {
+        return res.length > 0 || msg
+      }
+      if (Object.prototype.toString.call(res) === '[object Object]') {
+        return Object.keys(res).length > 0 || msg
+      }
+      return true
     }
   }]).then(answers => {
     if (Array.isArray(answers[key])) {
