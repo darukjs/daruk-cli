@@ -20,7 +20,7 @@
   "author": "Youjingyu",
   "license": "ISC",
   "dependencies": {
-    "async": "^2.6.1",
+    "async": "^3.2.2",
     "chalk": "^2.4.1",
     "commander": "^2.17.1",
     "consolidate": "^0.15.1",
